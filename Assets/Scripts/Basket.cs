@@ -6,6 +6,10 @@ public class Basket : MonoBehaviour
 {
 	public GUIText scoreGT; //legacy version of UI
 
+	public AppleTree treeScript; //my own - difficulty
+
+	public GameObject tree;
+
 	void Start () 
 	{
 		//score obj reference
@@ -64,5 +68,20 @@ public class Basket : MonoBehaviour
 			HighScore.score = score;
 		}
 
+		//my own - difficulty
+		if (score % 1000 == 0) 
+		{
+			//get script
+			treeScript = tree.GetComponent<AppleTree> ();
+
+			//print test to see if working
+			print ("SPEEDING UP");
+
+			//plus speed to current speed
+			treeScript.speed = 200f;
+
+			//print test to see if working
+			print ("SPEEDING UP MORE");
+		}
 	}
 }
