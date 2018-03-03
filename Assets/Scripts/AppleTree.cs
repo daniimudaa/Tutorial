@@ -1,16 +1,67 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleTree : MonoBehaviour {
+public class AppleTree : MonoBehaviour 
+{
+	//Apple prefab
+	public GameObject applePrefab;
 
-	// Use this for initialization
-	void Start () {
-		
+	//speed for Apple fall
+	public float speed = 1f;
+
+	//distance for AppleTree turns
+	public float leftAndRightEdge = 10f;
+
+	// % chance for direction change (AppleTree)
+	public float chanceToChangeDirections = 0.1f;
+
+	//Apple instantiating rate
+	public float secondsBetweenAppleDrops = 1f;
+
+
+
+	void Start () 
+	{
+		//dropping apples
+		InvokeRepeating ("DropApple", 2f, secondsBetweenAppleDrops);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		//basic AppleTree movement
+		Vector3 pos = transform.position;
+		pos.x += speed * Time.deltaTime;
+		transform.position = pos;
+
+		//changing AppleTree direction
+		if (pos.x < -leftAndRightEdge) 
+		{
+			//move AppleTree right
+			speed = Mathf.Abs (speed); 
+		} 
+
+		else if (pos.x > leftAndRightEdge) 
+		{
+			//move AppleTree left
+			speed = -Mathf.Abs (speed); 
+		} 
+
+	}
+
+	void FixedUpdate()
+	{
+		//change AppleTree direction randomly
+		if (Random.value < chanceToChangeDirections) 
+		{
+			//change AppleTree direction in opposite 
+			speed *= -1; 
+		}
+	}
+
+	void DropApple()
+	{
+		//instantiate an Apple obj from the current position of the AppleTree
+		GameObject apple = Instantiate (applePrefab) as GameObject;
+		apple.transform.position = transform.position;
 	}
 }
