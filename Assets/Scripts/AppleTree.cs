@@ -7,7 +7,7 @@ public class AppleTree : MonoBehaviour
 	public GameObject applePrefab;
 
 	//speed for Apple fall
-	public float speed = 1f;
+	public int speed = 10;
 
 	//distance for AppleTree turns
 	public float leftAndRightEdge = 10f;
@@ -50,6 +50,8 @@ public class AppleTree : MonoBehaviour
 
 	void FixedUpdate()
 	{
+
+
 		//change AppleTree direction randomly
 		if (Random.value < chanceToChangeDirections) 
 		{
