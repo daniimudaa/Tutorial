@@ -17,6 +17,8 @@ public class ApplePicker : MonoBehaviour
 
 	void Start () 
 	{
+		Time.timeScale = 1; //*making sure that the game will always start with time scale of 1
+
 		//defining what will be stored in the list
 		basketList = new List<GameObject>();
 

@@ -11,7 +11,7 @@ public class Apple : MonoBehaviour
 	void Update () 
 	{
 		//*rotaing the obj (aesthetics)
-		transform.Rotate (0, 0, Random.Range(5,10), Space.World);
+		transform.Rotate (0.5f, Random.Range(5,10), 2f);
 
 		// if an apple reaches past -20 units in the Y direction (down)
 		if (transform.position.y < bottomY) 

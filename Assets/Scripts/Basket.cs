@@ -83,6 +83,12 @@ public class Basket : MonoBehaviour
 			HighScore.score = score;
 		}
 
+		if (score > 5000) 
+		{
+			//make apples spin
+
+		}
+
 		////*added stuff - difficulty
 		//for every 10 apples collected (1000 score) then increase AppleTree speed by 5f
 		for (int i = 0; i < maxApples / 100; i++) 
@@ -106,14 +112,12 @@ public class Basket : MonoBehaviour
 		}
 				
 		//*added stuff - end game
-		//if end score is reached (10, 000 score) then show win menu screen
+		//if end score is reached (10, 000 score) then show win menu screen & pause movement
 		if (score == 10000) 
 		{
 			Time.timeScale = 0;
 			//win level menu
 		}
-
-
 
 	}
 }

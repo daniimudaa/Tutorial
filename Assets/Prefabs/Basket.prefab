@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1197104413357388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_LocalPosition: {x: 0, y: 0.111, z: 0}
+  m_LocalScale: {x: 0.019916028, y: 0.010176255, z: 0.01748597}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1197104413357388}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: d01f3749705567f4b870174c20b03493, type: 3}
 --- !u!65 &65598813622393286
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 276.02325, y: 195.24759, z: 279.1415}
+  m_Center: {x: -1.3246841, y: 86.7223, z: -0.107892565}
 --- !u!114 &114969389034135402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,3 +111,4 @@ MonoBehaviour:
   treeScript: {fileID: 114106252076429528, guid: c4a6e2b5d8cae5c4eb93ff463299d702,
     type: 2}
   tree: {fileID: 1916262280601726, guid: c4a6e2b5d8cae5c4eb93ff463299d702, type: 2}
+  maxApples: 10000
