@@ -2,19 +2,23 @@
 using UnityEngine;
 using System.Text;
 
+//*added stuff = code that i've implemented outside of the tutorial
+//**TUTORIAL = implemented tutorial code
+
 public class Basket : MonoBehaviour 
 {
 	public GUIText scoreGT; //legacy version of UI
 
-	public AppleTree treeScript; //added stuff - difficulty
-
-	public GameObject tree; //added stuff - difficulty
-
-	public int maxApples = 10000;
+	//*added stuff
+	public AppleTree treeScript; //*added stuff - difficulty - script reference
+	public GameObject tree; //*added stuff - difficulty - object containing script reference
+	public int maxApples = 10000; //*added stuff - difficulty - maxScore/Apples you can get
 
 	void Start () 
 	{
-		treeScript = tree.GetComponent<AppleTree> ();
+		//*added stuff - locating the scipt reference
+		tree = GameObject.Find ("AppleTree"); //*added stuff - difficulty 
+		treeScript = tree.GetComponent<AppleTree> (); //*added stuff - difficulty
 
 		//score obj reference
 		GameObject scoreGO = GameObject.Find ("ScoreCounter");
@@ -51,7 +55,7 @@ public class Basket : MonoBehaviour
 		GameObject collidedWith = col.gameObject;
 
 		//if an object tagged "Apple" touches the baskets collider
-		if (collidedWith.tag == "Apple") 
+		if (collidedWith.tag == "Apple" || collidedWith.tag == "BadApple") 
 		{
 			//destroy that particular Apple obj
 			Destroy (collidedWith);
@@ -63,6 +67,13 @@ public class Basket : MonoBehaviour
 		//add points when catching an Apple
 		score += 100;
 
+		//*added stuff - bad apple
+		//if basket touches a bad apple you loose 100 points
+		if (collidedWith.tag == "BadApple")
+		{
+			score -= 200;
+		}
+
 		//convert score back to string and display it
 		scoreGT.text = score.ToString();
 
@@ -72,22 +83,37 @@ public class Basket : MonoBehaviour
 			HighScore.score = score;
 		}
 
-		//added stuff - difficulty
+		////*added stuff - difficulty
+		//for every 10 apples collected (1000 score) then increase AppleTree speed by 5f
 		for (int i = 0; i < maxApples / 100; i++) 
 		{
 			if (score == i * 1000) 
 			{
-				treeScript.speed *= 2;
+				//*treeScript.speed += 5f; //this was causing the tree to slow down when in negative value (moving left) because it was adding positive numbers to a negative
 
-				//print (treeScript.speed);
+				//*if the speed is a positive number then add 5
+				if (treeScript.speed > 0) 
+				{
+					treeScript.speed += 5f;
+				}
+
+				//*if the speed is a negative number then minus 5
+				else if (treeScript.speed < 0) 
+				{
+					treeScript.speed -= 5f;
+				}
 			}
 		}
 				
-
+		//*added stuff - end game
+		//if end score is reached (10, 000 score) then show win menu screen
 		if (score == 10000) 
 		{
+			Time.timeScale = 0;
 			//win level menu
 		}
+
+
 
 	}
 }

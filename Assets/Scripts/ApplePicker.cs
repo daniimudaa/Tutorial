@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//*added stuff = code that i've implemented outside of the tutorial
+//**TUTORIAL = implemented tutorial code
+
 public class ApplePicker : MonoBehaviour 
 {
 	//Basket References
@@ -10,11 +13,11 @@ public class ApplePicker : MonoBehaviour
 	public float basketBottomY = -14f; //where to instantiate the basket
 	public float basketSpacingY = 2f; //instantiate baskets underneith at this distance
 
-	public List<GameObject> basketList;
+	public List<GameObject> basketList; //list reference for all baskets to be stored
 
 	void Start () 
 	{
-		//defining whats stored in the list
+		//defining what will be stored in the list
 		basketList = new List<GameObject>();
 
 		//instantiating 3 baskets in scene at the start
@@ -60,10 +63,13 @@ public class ApplePicker : MonoBehaviour
 		basketList.RemoveAt(basketIndex);
 		Destroy (tBasketGO);
 
-		//restart game, but keep highscore
+		//**restart game, but keep highscore
 		if (basketList.Count == 0) 
 		{
-			Application.LoadLevel ("_Scene_0"); //old way of loading scenes
+			////**TUTORIAL CODE
+			//Application.LoadLevel ("_Scene_0"); //old way of loading scenes
+
+			//*loose screen
 		}
 
 	}

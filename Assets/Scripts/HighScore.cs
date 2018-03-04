@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//*added stuff = code that i've implemented outside of the tutorial
+//**TUTORIAL = implemented tutorial code
+
 public class HighScore : MonoBehaviour 
 {
 	//static reference so that the same variable can be shared by all instances of the class
