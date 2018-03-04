@@ -14,7 +14,7 @@ public class Basket : MonoBehaviour
 
 	void Start () 
 	{
-
+		treeScript = tree.GetComponent<AppleTree> ();
 
 		//score obj reference
 		GameObject scoreGO = GameObject.Find ("ScoreCounter");
@@ -79,7 +79,7 @@ public class Basket : MonoBehaviour
 			{
 				treeScript.speed *= 2;
 
-				print (treeScript.speed);
+				//print (treeScript.speed);
 			}
 		}
 				

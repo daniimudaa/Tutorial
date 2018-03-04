@@ -28,36 +28,38 @@ public class AppleTree : MonoBehaviour
 	
 	void Update () 
 	{
-		//basic AppleTree movement
-		Vector3 pos = transform.position;
-		pos.x += speed * Time.deltaTime;
-		transform.position = pos;
-
-		//changing AppleTree direction
-		if (pos.x < -leftAndRightEdge) 
-		{
-			//move AppleTree right
-			speed = Mathf.Abs (speed); 
-		} 
-
-		else if (pos.x > leftAndRightEdge) 
-		{
-			//move AppleTree left
-			speed = -Mathf.Abs (speed); 
-		} 
-
-	}
-
-	void FixedUpdate()
-	{
-
-
-		//change AppleTree direction randomly
-		if (Random.value < chanceToChangeDirections) 
-		{
-			//change AppleTree direction in opposite 
-			speed *= -1; 
-		}
+		print (speed);
+//
+//		//basic AppleTree movement
+//		Vector3 pos = transform.position;
+//		pos.x += speed * Time.deltaTime;
+//		transform.position = pos;
+//
+//		//changing AppleTree direction
+//		if (pos.x < -leftAndRightEdge) 
+//		{
+//			//move AppleTree right
+//			speed = Mathf.Abs (speed); 
+//		} 
+//
+//		else if (pos.x > leftAndRightEdge) 
+//		{
+//			//move AppleTree left
+//			speed = -Mathf.Abs (speed); 
+//		} 
+//
+//	}
+//
+//	void FixedUpdate()
+//	{
+//
+//
+//		//change AppleTree direction randomly
+//		if (Random.value < chanceToChangeDirections) 
+//		{
+//			//change AppleTree direction in opposite 
+//			speed *= -1; 
+//		}
 	}
 
 	void DropApple()
