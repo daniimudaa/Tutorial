@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65598813622393286}
   - component: {fileID: 23456936308341758}
   - component: {fileID: 114969389034135402}
+  - component: {fileID: 82563475164691534}
   m_Layer: 10
   m_Name: Basket
   m_TagString: Untagged
@@ -126,6 +127,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 276.02325, y: 195.24759, z: 279.1415}
   m_Center: {x: -1.3246841, y: 86.7223, z: -0.107892565}
+--- !u!82 &82563475164691534
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197104413357388}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114969389034135402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +224,10 @@ MonoBehaviour:
   tree: {fileID: 1916262280601726, guid: c4a6e2b5d8cae5c4eb93ff463299d702, type: 2}
   maxApples: 10000
   eventS: {fileID: 1984159022953822, guid: c01b690fec671784ca550bea25f5722e, type: 2}
+  caught: {fileID: 8300000, guid: 79eb2f7087fe4334cbdb220cbd75e8dc, type: 3}
+  minusPoints: {fileID: 8300000, guid: 3dd6db6070c0ca34d8acec299bbb2a42, type: 3}
+  speedUp: {fileID: 8300000, guid: 8c9aa895d6c276d4b8f8f468c425de9e, type: 3}
+  speedUp2: {fileID: 8300000, guid: a0d46eeeed3fa3048a89e31f8c5c8629, type: 3}
 --- !u!212 &212867924676712112
 SpriteRenderer:
   m_ObjectHideFlags: 1

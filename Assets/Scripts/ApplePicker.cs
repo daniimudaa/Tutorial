@@ -19,6 +19,10 @@ public class ApplePicker : MonoBehaviour
 	public GameObject eventS;//*added stuff - reference to menu manager
 	private MenuManager menuM;//*added stuff - reference to menu manager
 
+	public AudioClip lose; //*audioClip source
+	public AudioClip loseBasket; //*audioClip source
+	public AudioSource audioSource; //*audio source on object
+
 	void Start () 
 	{
 		paused = false;//*making sure the game is un-paused at the start
@@ -73,25 +77,29 @@ public class ApplePicker : MonoBehaviour
 
 	public void AppleDestroyed()
 	{
-		//create an array of all in game obj's with "Apple" tag
-		GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag ("Apple");
-
-		//destroy all falling apples found
-		foreach (GameObject tGO in tAppleArray) 
+		if (basketList.Count > 0) 
 		{
-			Destroy (tGO);
+			//create an array of all in game obj's with "Apple" tag
+			GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag ("Apple");
+
+			//destroy all falling apples found
+			foreach (GameObject tGO in tAppleArray) {
+				Destroy (tGO);
+			}
+
+			//Destroy one of the baskets
+			//get index of the last Basket in basketList
+			int basketIndex = basketList.Count - 1;
+
+			audioSource.PlayOneShot (loseBasket, 1f);
+
+			//get reference to that basket obj
+			GameObject tBasketGO = basketList [basketIndex];
+
+			//remove basket from list then destroy obj
+			basketList.RemoveAt (basketIndex);
+			Destroy (tBasketGO);
 		}
-
-		//Destroy one of the baskets
-		//get index of the last Basket in basketList
-		int basketIndex = basketList.Count-1;
-
-		//get reference to that basket obj
-		GameObject tBasketGO = basketList[basketIndex];
-
-		//remove basket from list then destroy obj
-		basketList.RemoveAt(basketIndex);
-		Destroy (tBasketGO);
 
 		//**restart game, but keep highscore
 		if (basketList.Count == 0) 
@@ -102,6 +110,12 @@ public class ApplePicker : MonoBehaviour
 			//*lose screen
 			menuM.deathPanel.SetActive(true);
 			menuM.buttons.SetActive (true);
+
+			//pause time
+			Time.timeScale = 0;
+
+			//*play lose audio
+			audioSource.PlayOneShot (lose, 1f);
 		}
 
 	}

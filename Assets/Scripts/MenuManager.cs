@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;//*accessing scene management
-using UnityEditor;//*for quitting playmode (when pressing "QUIT" buttons)
+//using UnityEditor;//*for quitting playmode (when pressing "QUIT" buttons)
 
 public class MenuManager : MonoBehaviour 
 {
@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
 	public void Quit()
 	{
 		Application.Quit ();
-		EditorApplication.isPlaying = false;
+		//EditorApplication.isPlaying = false; //*closing play screen while testing
 	}
 
 	public void Instructions()

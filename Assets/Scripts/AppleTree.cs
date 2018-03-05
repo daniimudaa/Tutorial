@@ -26,7 +26,6 @@ public class AppleTree : MonoBehaviour
 	public float secondsBetweenAppleDrops = 1f;
 
 
-
 	void Start () 
 	{
 		//dropping apples

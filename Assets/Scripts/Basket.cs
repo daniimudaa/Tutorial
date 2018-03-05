@@ -17,8 +17,16 @@ public class Basket : MonoBehaviour
 	public GameObject eventS;//*added stuff - reference to menu manager
 	private MenuManager menuM;//*added stuff - reference to menu manager
 
+	public AudioClip caught; //*audioClip source
+	public AudioClip minusPoints; //*audioClip source
+	public AudioClip speedUp; //*audioClip source
+	public AudioClip speedUp2; //*audioClip source
+	AudioSource audioSource; //*audio source on object
+
 	void Start () 
 	{
+		audioSource = GetComponent<AudioSource> ();
+
 		menuM = eventS.GetComponent<MenuManager>();//*defining script for menu manager
 
 		//*added stuff - locating the scipt reference
@@ -72,11 +80,20 @@ public class Basket : MonoBehaviour
 		//add points when catching an Apple
 		score += 100;
 
+		if (collidedWith.tag == "Apple") 
+		{
+			//*play caught audio
+			audioSource.PlayOneShot (caught, 1f);
+		}
+
 		//*added stuff - bad apple
 		//if basket touches a bad apple you loose 100 points
 		if (collidedWith.tag == "BadApple")
 		{
 			score -= 200;
+
+			//*play minusPoints audio
+			audioSource.PlayOneShot(minusPoints, 1f);
 		}
 
 		//convert score back to string and display it
@@ -100,19 +117,25 @@ public class Basket : MonoBehaviour
 				if (treeScript.speed > 0) 
 				{
 					treeScript.speed += 5f;
+
+					//*play speed up audio
+					audioSource.PlayOneShot (speedUp, 1f);
 				}
 
 				//*if the speed is a negative number then minus 5
 				else if (treeScript.speed < 0) 
 				{
 					treeScript.speed -= 5f;
+
+					//*play speed up audio
+					audioSource.PlayOneShot (speedUp2, 1f);
 				}
 			}
 		}
 				
 		//*added stuff - end game
 		//*if end score is reached (10, 000 score) then show win menu screen & pause movement
-		if (score == 10000) 
+		if (score == 100) 
 		{
 			Time.timeScale = 0;
 
@@ -123,6 +146,7 @@ public class Basket : MonoBehaviour
 			//turn on the UI Panel and Buttons
 			menuM.winPanel.SetActive (true);
 			menuM.buttons.SetActive (true);
+
 		}
 
 	}
