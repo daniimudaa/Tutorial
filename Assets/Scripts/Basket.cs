@@ -135,7 +135,7 @@ public class Basket : MonoBehaviour
 				
 		//*added stuff - end game
 		//*if end score is reached (10, 000 score) then show win menu screen & pause movement
-		if (score == 100) 
+		if (score == 10000) 
 		{
 			Time.timeScale = 0;
 
