@@ -35,7 +35,7 @@ public class AppleTree : MonoBehaviour
 	
 	void Update () 
 	{
-		print (speed); //* testing to see how the value changes over time
+		//print (speed); //* testing to see how the value changes over time
 
 		//basic AppleTree movement
 		Vector3 pos = transform.position;

@@ -16,11 +16,14 @@ public class ApplePicker : MonoBehaviour
 	public List<GameObject> basketList; //list reference for all baskets to be stored
 
 	public bool paused = false; //*added stuff - bool to toggle "esc" key to pause & un-pause game
-	public GameObject pauseMenu;//*added stuff - reference to pause menu panel
+	public GameObject eventS;//*added stuff - reference to menu manager
+	private MenuManager menuM;//*added stuff - reference to menu manager
 
 	void Start () 
 	{
 		paused = false;//*making sure the game is un-paused at the start
+
+		menuM = eventS.GetComponent<MenuManager>();//*defining script for menu manager
 
 		Time.timeScale = 1; //*making sure that the game will always start with time scale of 1
 
@@ -51,7 +54,7 @@ public class ApplePicker : MonoBehaviour
 			//*game un-paused
 			if (paused) 
 			{
-				pauseMenu.SetActive (false);
+				menuM.pausePanel.SetActive (false);
 				Time.timeScale = 1;
 				print ("UNPAUSED");
 				paused = false;
@@ -60,12 +63,11 @@ public class ApplePicker : MonoBehaviour
 			//*game paused
 			else 
 			{
-				pauseMenu.SetActive (true);
+				menuM.pausePanel.SetActive (true);
 				Time.timeScale = 0;
 				print ("PAUSED!");
 				paused = true;
 			}
-
 		}
 	}
 
@@ -97,7 +99,9 @@ public class ApplePicker : MonoBehaviour
 			////**TUTORIAL CODE
 			//Application.LoadLevel ("_Scene_0"); //old way of loading scenes
 
-			//*loose screen
+			//*lose screen
+			menuM.deathPanel.SetActive(true);
+			menuM.buttons.SetActive (true);
 		}
 
 	}

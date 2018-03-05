@@ -14,8 +14,13 @@ public class Basket : MonoBehaviour
 	public GameObject tree; //*added stuff - difficulty - object containing script reference
 	public int maxApples = 10000; //*added stuff - difficulty - maxScore/Apples you can get
 
+	public GameObject eventS;//*added stuff - reference to menu manager
+	private MenuManager menuM;//*added stuff - reference to menu manager
+
 	void Start () 
 	{
+		menuM = eventS.GetComponent<MenuManager>();//*defining script for menu manager
+
 		//*added stuff - locating the scipt reference
 		tree = GameObject.Find ("AppleTree"); //*added stuff - difficulty 
 		treeScript = tree.GetComponent<AppleTree> (); //*added stuff - difficulty
@@ -83,14 +88,8 @@ public class Basket : MonoBehaviour
 			HighScore.score = score;
 		}
 
-		if (score > 5000) 
-		{
-			//make apples spin
-
-		}
-
 		////*added stuff - difficulty
-		//for every 10 apples collected (1000 score) then increase AppleTree speed by 5f
+		//*for every 10 apples collected (1000 score) then increase AppleTree speed by 5f
 		for (int i = 0; i < maxApples / 100; i++) 
 		{
 			if (score == i * 1000) 
@@ -112,11 +111,18 @@ public class Basket : MonoBehaviour
 		}
 				
 		//*added stuff - end game
-		//if end score is reached (10, 000 score) then show win menu screen & pause movement
+		//*if end score is reached (10, 000 score) then show win menu screen & pause movement
 		if (score == 10000) 
 		{
 			Time.timeScale = 0;
-			//win level menu
+
+			//find the scripts that hold the UI panel & buttons
+			eventS = GameObject.Find ("EventSystem"); 
+			menuM = eventS.GetComponent<MenuManager> (); 
+
+			//turn on the UI Panel and Buttons
+			menuM.winPanel.SetActive (true);
+			menuM.buttons.SetActive (true);
 		}
 
 	}
