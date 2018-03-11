@@ -27,11 +27,6 @@ public class AppleTree : MonoBehaviour
 	//Apple instantiating rate
 	public float secondsBetweenAppleDrops = 1f;
 
-	//*coin particle effects for score points
-	public GameObject appleCoinParticle;
-	public GameObject badAppleCoinParticle;
-	public GameObject pointsCoinParticle;
-
 
 	void Start () 
 	{
@@ -64,6 +59,8 @@ public class AppleTree : MonoBehaviour
 			speed = -Mathf.Abs (speed); 
 		} 
 
+
+
 	}
 
 	void FixedUpdate()
@@ -92,20 +89,5 @@ public class AppleTree : MonoBehaviour
 	void DropDoublePoints()
 	{
 		Instantiate (doublePointApple, transform.position, transform.rotation);
-	}
-
-	public void AppleCoinParticles()
-	{
-		Instantiate (appleCoinParticle, transform.position, transform.rotation);
-	}
-
-	public void BadAppleCoinParticles()
-	{
-		Instantiate (badAppleCoinParticle, transform.position, transform.rotation);
-	}
-
-	public void PointsCoinParticles()
-	{
-		Instantiate (pointsCoinParticle, transform.position, transform.rotation);
 	}
 }

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 82563475164691534}
   m_Layer: 10
   m_Name: Basket
-  m_TagString: Untagged
+  m_TagString: Basket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,12 @@ MonoBehaviour:
   sceneBadApples: {fileID: 1204133664015940, guid: e1655d7fe6f6a934f9320ac7e6d56028,
     type: 2}
   appleScript: {fileID: 114037934106316490, guid: 027150ad3c6bfc948ad73fd02a585783,
+    type: 2}
+  appleCoinParticle: {fileID: 1035690374466914, guid: 0c443737df71cdd47a949c36cbe2944d,
+    type: 2}
+  badAppleCoinParticle: {fileID: 1838785314972344, guid: 35dfdc28b260b284c8ed2366d470e1e2,
+    type: 2}
+  pointsCoinParticle: {fileID: 1456704564405618, guid: aa3c5893e1af4cd4ebfe8ea42231d5e0,
     type: 2}
 --- !u!212 &212867924676712112
 SpriteRenderer:

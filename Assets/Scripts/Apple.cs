@@ -22,7 +22,7 @@ public class Apple : MonoBehaviour
 		//print (appleSpeed);
 
 		//* makking apples fall faster
-		this.GetComponent<Rigidbody> ().AddForce (0, -appleSpeed,0, ForceMode.Impulse);
+		this.GetComponent<Rigidbody> ().AddForce (0, -appleSpeed, 0 , ForceMode.Impulse);
 
 		//*rotaing the obj (aesthetics)
 		transform.Rotate (0.5f, Random.Range(5,10), 2f);

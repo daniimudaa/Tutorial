@@ -28,6 +28,11 @@ public class Basket : MonoBehaviour
 	public GameObject sceneBadApples;
 	public Apple appleScript;
 
+	//*coin particle effects for score points
+	public GameObject appleCoinParticle;
+	public GameObject badAppleCoinParticle;
+	public GameObject pointsCoinParticle;
+
 	void Start () 
 	{
 		audioSource = GetComponent<AudioSource> ();
@@ -95,7 +100,7 @@ public class Basket : MonoBehaviour
 
 		if (collidedWith.tag == "Apple") 
 		{
-			treeScript.AppleCoinParticles();
+			AppleCoinParticles();
 
 			//*play caught audio
 			audioSource.PlayOneShot (caught, 1f);
@@ -105,8 +110,8 @@ public class Basket : MonoBehaviour
 
 		if (collidedWith.tag == "DoublePoints") 
 		{
+			PointsCoinParticles();
 			score += 1000;
-			treeScript.PointsCoinParticles();
 
 			//*play caught audio
 			audioSource.PlayOneShot (caught, 1f);
@@ -116,8 +121,8 @@ public class Basket : MonoBehaviour
 		//if basket touches a bad apple you loose 100 points
 		if (collidedWith.tag == "BadApple")
 		{
+			BadAppleCoinParticles();
 			score -= 200;
-			treeScript.BadAppleCoinParticles();
 
 			//*play minusPoints audio
 			audioSource.PlayOneShot(minusPoints, 1f);
@@ -179,5 +184,24 @@ public class Basket : MonoBehaviour
 
 		}
 
+	}
+
+	//*activating particle feedback
+	public void AppleCoinParticles()
+	{
+		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Instantiate (appleCoinParticle, transform.position + aboveBasketPos, transform.rotation);
+	}
+
+	public void BadAppleCoinParticles()
+	{
+		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Instantiate (badAppleCoinParticle, transform.position + aboveBasketPos, transform.rotation);
+	}
+
+	public void PointsCoinParticles()
+	{
+		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Instantiate (pointsCoinParticle, transform.position + aboveBasketPos, transform.rotation);
 	}
 }
