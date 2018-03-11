@@ -9,7 +9,7 @@ public class Apple : MonoBehaviour
 	public static float bottomY = -20f;
 
 	//*speed variable for apple fall
-	public float appleSpeed = 0.1f;
+	public float appleSpeed;
 
 	void Start ()
 	{
@@ -19,7 +19,7 @@ public class Apple : MonoBehaviour
 	void Update () 
 	{
 		//*checking speed increase works
-		//print (appleSpeed);
+		print (appleSpeed);
 
 		//* makking apples fall faster
 		this.GetComponent<Rigidbody> ().AddForce (0, -appleSpeed, 0 , ForceMode.Impulse);

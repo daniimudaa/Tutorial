@@ -146,7 +146,7 @@ public class Basket : MonoBehaviour
 			if (score == i * 1000) 
 			{
 				//*increase fall speed of apples
-				appleScript.appleSpeed += 0.1f;
+				appleScript.appleSpeed += 0.2f;
 
 				//*treeScript.speed += 5f; //this was causing the tree to slow down when in negative value (moving left) because it was adding positive numbers to a negative
 
