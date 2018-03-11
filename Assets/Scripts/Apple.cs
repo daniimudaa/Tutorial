@@ -8,8 +8,22 @@ public class Apple : MonoBehaviour
 {
 	public static float bottomY = -20f;
 
+	//*speed variable for apple fall
+	public float appleSpeed = 0.1f;
+
+	void Start ()
+	{
+		appleSpeed = 0.1f;
+	}
+
 	void Update () 
 	{
+		//*checking speed increase works
+		//print (appleSpeed);
+
+		//* makking apples fall faster
+		this.GetComponent<Rigidbody> ().AddForce (0, -appleSpeed,0, ForceMode.Impulse);
+
 		//*rotaing the obj (aesthetics)
 		transform.Rotate (0.5f, Random.Range(5,10), 2f);
 

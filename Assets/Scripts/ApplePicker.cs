@@ -117,6 +117,5 @@ public class ApplePicker : MonoBehaviour
 			//*play lose audio
 			audioSource.PlayOneShot (lose, 1f);
 		}
-
 	}
 }

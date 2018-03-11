@@ -228,6 +228,12 @@ MonoBehaviour:
   minusPoints: {fileID: 8300000, guid: 3dd6db6070c0ca34d8acec299bbb2a42, type: 3}
   speedUp: {fileID: 8300000, guid: 8c9aa895d6c276d4b8f8f468c425de9e, type: 3}
   speedUp2: {fileID: 8300000, guid: a0d46eeeed3fa3048a89e31f8c5c8629, type: 3}
+  sceneApples: {fileID: 1113769499665414, guid: 027150ad3c6bfc948ad73fd02a585783,
+    type: 2}
+  sceneBadApples: {fileID: 1204133664015940, guid: e1655d7fe6f6a934f9320ac7e6d56028,
+    type: 2}
+  appleScript: {fileID: 114037934106316490, guid: 027150ad3c6bfc948ad73fd02a585783,
+    type: 2}
 --- !u!212 &212867924676712112
 SpriteRenderer:
   m_ObjectHideFlags: 1

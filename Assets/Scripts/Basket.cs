@@ -23,6 +23,11 @@ public class Basket : MonoBehaviour
 	public AudioClip speedUp2; //*audioClip source
 	AudioSource audioSource; //*audio source on object
 
+	//* to find the apple script in scene for change in difficulty
+	public GameObject sceneApples;
+	public GameObject sceneBadApples;
+	public Apple appleScript;
+
 	void Start () 
 	{
 		audioSource = GetComponent<AudioSource> ();
@@ -32,6 +37,9 @@ public class Basket : MonoBehaviour
 		//*added stuff - locating the scipt reference
 		tree = GameObject.Find ("AppleTree"); //*added stuff - difficulty 
 		treeScript = tree.GetComponent<AppleTree> (); //*added stuff - difficulty
+
+		//*added stuff - locating the scipt reference
+		appleScript = sceneApples.GetComponent<Apple> (); //*added stuff - difficulty
 
 		//score obj reference
 		GameObject scoreGO = GameObject.Find ("ScoreCounter");
@@ -46,6 +54,11 @@ public class Basket : MonoBehaviour
 	
 	void Update () 
 	{
+		//* constantly look for these tags each frame
+		sceneApples = GameObject.FindGameObjectWithTag ("Apple"); //*added stuff - difficulty 
+		sceneBadApples = GameObject.FindGameObjectWithTag ("BadApple"); //*added stuff - difficulty 
+
+
 		//Get current screen position of the mouse
 		Vector3 mousePos2D = Input.mousePosition;
 
@@ -68,7 +81,7 @@ public class Basket : MonoBehaviour
 		GameObject collidedWith = col.gameObject;
 
 		//if an object tagged "Apple" touches the baskets collider
-		if (collidedWith.tag == "Apple" || collidedWith.tag == "BadApple") 
+		if (collidedWith.tag == "Apple" || collidedWith.tag == "BadApple" || collidedWith.tag == "DoublePoints") 
 		{
 			//destroy that particular Apple obj
 			Destroy (collidedWith);
@@ -82,15 +95,29 @@ public class Basket : MonoBehaviour
 
 		if (collidedWith.tag == "Apple") 
 		{
+			treeScript.AppleCoinParticles();
+
 			//*play caught audio
 			audioSource.PlayOneShot (caught, 1f);
 		}
 
+		//*if caught gain 200 points
+
+		if (collidedWith.tag == "DoublePoints") 
+		{
+			score += 1000;
+			treeScript.PointsCoinParticles();
+
+			//*play caught audio
+			audioSource.PlayOneShot (caught, 1f);
+		}
+			
 		//*added stuff - bad apple
 		//if basket touches a bad apple you loose 100 points
 		if (collidedWith.tag == "BadApple")
 		{
 			score -= 200;
+			treeScript.BadAppleCoinParticles();
 
 			//*play minusPoints audio
 			audioSource.PlayOneShot(minusPoints, 1f);
@@ -111,6 +138,9 @@ public class Basket : MonoBehaviour
 		{
 			if (score == i * 1000) 
 			{
+				//*increase fall speed of apples
+				appleScript.appleSpeed += 0.1f;
+
 				//*treeScript.speed += 5f; //this was causing the tree to slow down when in negative value (moving left) because it was adding positive numbers to a negative
 
 				//*if the speed is a positive number then add 5
@@ -135,7 +165,7 @@ public class Basket : MonoBehaviour
 				
 		//*added stuff - end game
 		//*if end score is reached (10, 000 score) then show win menu screen & pause movement
-		if (score == 10000) 
+		if (score >= 100000) 
 		{
 			Time.timeScale = 0;
 

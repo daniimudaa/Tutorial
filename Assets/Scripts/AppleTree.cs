@@ -13,6 +13,8 @@ public class AppleTree : MonoBehaviour
 	//*added stuff - random apple types in place of above code
 	public GameObject[] randomApples;
 
+	public GameObject doublePointApple;
+
 	//speed for Apple fall
 	public float speed = 1f;
 
@@ -25,11 +27,19 @@ public class AppleTree : MonoBehaviour
 	//Apple instantiating rate
 	public float secondsBetweenAppleDrops = 1f;
 
+	//*coin particle effects for score points
+	public GameObject appleCoinParticle;
+	public GameObject badAppleCoinParticle;
+	public GameObject pointsCoinParticle;
+
 
 	void Start () 
 	{
 		//dropping apples
 		InvokeRepeating ("DropApple", 2f, secondsBetweenAppleDrops);
+
+		//dropping doublepoint apples
+		InvokeRepeating ("DropDoublePoints", 10.6f, 10.6f);
 	}
 	
 	void Update () 
@@ -77,5 +87,25 @@ public class AppleTree : MonoBehaviour
 		//*added stuff - random apple types - instantiating random apple prefabs from an array in AppleTree position similar to above
 		Instantiate (randomApples[UnityEngine.Random.Range (0,3)], transform.position, transform.rotation);
 
+	}
+
+	void DropDoublePoints()
+	{
+		Instantiate (doublePointApple, transform.position, transform.rotation);
+	}
+
+	public void AppleCoinParticles()
+	{
+		Instantiate (appleCoinParticle, transform.position, transform.rotation);
+	}
+
+	public void BadAppleCoinParticles()
+	{
+		Instantiate (badAppleCoinParticle, transform.position, transform.rotation);
+	}
+
+	public void PointsCoinParticles()
+	{
+		Instantiate (pointsCoinParticle, transform.position, transform.rotation);
 	}
 }
