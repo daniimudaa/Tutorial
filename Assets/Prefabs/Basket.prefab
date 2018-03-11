@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 23456936308341758}
   - component: {fileID: 114969389034135402}
   - component: {fileID: 82563475164691534}
+  - component: {fileID: 95509985754346102}
+  - component: {fileID: 111654218692368590}
   m_Layer: 10
   m_Name: Basket
   m_TagString: Basket
@@ -207,6 +209,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95509985754346102
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197104413357388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1110fb1ac7e08584497263a22e87444a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111654218692368590
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197104413357388}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 56a4a08641b65c441ad1df9304a7de90, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 56a4a08641b65c441ad1df9304a7de90, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114969389034135402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,6 +273,8 @@ MonoBehaviour:
   badAppleCoinParticle: {fileID: 1838785314972344, guid: 35dfdc28b260b284c8ed2366d470e1e2,
     type: 2}
   pointsCoinParticle: {fileID: 1456704564405618, guid: aa3c5893e1af4cd4ebfe8ea42231d5e0,
+    type: 2}
+  speedUpParticle: {fileID: 1035690374466914, guid: f7f123512445bc44695122a05cc15420,
     type: 2}
 --- !u!212 &212867924676712112
 SpriteRenderer:

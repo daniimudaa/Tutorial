@@ -32,6 +32,8 @@ public class Basket : MonoBehaviour
 	public GameObject appleCoinParticle;
 	public GameObject badAppleCoinParticle;
 	public GameObject pointsCoinParticle;
+	public GameObject speedUpParticle;
+
 
 	void Start () 
 	{
@@ -111,7 +113,7 @@ public class Basket : MonoBehaviour
 		if (collidedWith.tag == "DoublePoints") 
 		{
 			PointsCoinParticles();
-			score += 1000;
+			score += 900;
 
 			//*play caught audio
 			audioSource.PlayOneShot (caught, 1f);
@@ -153,6 +155,8 @@ public class Basket : MonoBehaviour
 				{
 					treeScript.speed += 5f;
 
+					SpeedUpParticleOn();
+
 					//*play speed up audio
 					audioSource.PlayOneShot (speedUp, 1f);
 				}
@@ -161,6 +165,8 @@ public class Basket : MonoBehaviour
 				else if (treeScript.speed < 0) 
 				{
 					treeScript.speed -= 5f;
+
+					SpeedUpParticleOn();
 
 					//*play speed up audio
 					audioSource.PlayOneShot (speedUp2, 1f);
@@ -189,19 +195,30 @@ public class Basket : MonoBehaviour
 	//*activating particle feedback
 	public void AppleCoinParticles()
 	{
-		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Vector3 aboveBasketPos = new Vector3 (0f, 4f, 0f);
 		Instantiate (appleCoinParticle, transform.position + aboveBasketPos, transform.rotation);
 	}
 
 	public void BadAppleCoinParticles()
 	{
-		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Vector3 aboveBasketPos = new Vector3 (0f, 4f, 0f);
 		Instantiate (badAppleCoinParticle, transform.position + aboveBasketPos, transform.rotation);
 	}
 
 	public void PointsCoinParticles()
 	{
-		Vector3 aboveBasketPos = new Vector3 (0f, 3f, 0f);
+		Vector3 aboveBasketPos = new Vector3 (0f, 4f, 0f);
 		Instantiate (pointsCoinParticle, transform.position + aboveBasketPos, transform.rotation);
+	}
+
+	public void SpeedUpParticleOn()
+	{
+		Instantiate (speedUpParticle);
+		Invoke ("SpeedUpParticleOff", 5f);
+	}
+
+	public void SpeedUpParticleOff()
+	{
+		Destroy (speedUpParticle);
 	}
 }

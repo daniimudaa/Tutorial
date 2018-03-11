@@ -23,8 +23,14 @@ public class ApplePicker : MonoBehaviour
 	public AudioClip loseBasket; //*audioClip source
 	public AudioSource audioSource; //*audio source on object
 
+	public GameObject[] basketArray;
+	//public GameObject basketObj;
+	public Animation basketAnim;
+
+
 	void Start () 
 	{
+
 		paused = false;//*making sure the game is un-paused at the start
 
 		menuM = eventS.GetComponent<MenuManager>();//*defining script for menu manager
@@ -48,6 +54,9 @@ public class ApplePicker : MonoBehaviour
 			//add baskets to the list
 			basketList.Add (tBasketGO);
 		}
+
+		//basketObj = GameObject.FindGameObjectWithTag ("Basket");
+		//basketAnim = basketObj.GetComponent<Animation> ();
 	}
 	
 	void Update () 
@@ -83,7 +92,8 @@ public class ApplePicker : MonoBehaviour
 			GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag ("Apple");
 
 			//destroy all falling apples found
-			foreach (GameObject tGO in tAppleArray) {
+			foreach (GameObject tGO in tAppleArray) 
+			{
 				Destroy (tGO);
 			}
 
@@ -98,7 +108,20 @@ public class ApplePicker : MonoBehaviour
 
 			//remove basket from list then destroy obj
 			basketList.RemoveAt (basketIndex);
-			Destroy (tBasketGO);
+
+
+			if (basketArray == null)
+				basketArray = GameObject.FindGameObjectsWithTag("Basket");
+
+			basketAnim = GetComponent<Animation> ();
+
+			foreach (GameObject basketss in basketArray) 
+			{
+				//*play basket animation
+				basketAnim.Play ();
+			}
+
+			Destroy (tBasketGO, 1f);
 		}
 
 		//**restart game, but keep highscore

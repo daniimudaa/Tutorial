@@ -8,6 +8,8 @@ TagManager:
   - BadApple
   - DoublePoints
   - Basket
+  - Score
+  - Speed
   layers:
   - Default
   - TransparentFX
